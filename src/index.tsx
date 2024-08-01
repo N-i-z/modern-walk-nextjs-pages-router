@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 // import reportWebVitals from './reportWebVitals';
 import { ClerkProvider } from "@clerk/clerk-react";
+import { WatchlistProvider } from "./context/WatchListContext.tsx";
 
 const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY as string;
 
@@ -14,7 +15,9 @@ if (rootElement) {
   root.render(
     <React.StrictMode>
       <ClerkProvider publishableKey={clerkPubKey}>
-        <App />
+        <WatchlistProvider>
+          <App />
+        </WatchlistProvider>
       </ClerkProvider>
     </React.StrictMode>
   );
