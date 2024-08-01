@@ -4,8 +4,9 @@
   align-items: center;
   transition: background-color 0.2s, transform 0.2s;
   border-radius: 2vw;
-  width: 45vw;
+  width: 46vw;
   height: 30vh;
+  gap: 1vw;
 }
 
 .link {

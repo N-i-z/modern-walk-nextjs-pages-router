@@ -64,19 +64,23 @@ const FlashSale: React.FC = () => {
       {loading ? (
         <Loading message="Loading..." />
       ) : (
-        renderAlternateProducts().map((product) => (
-          <ProductCard
-            key={product.id}
-            title={product.title}
-            image={product.image}
-            price={product.price}
-            description={product.description}
-            category={product.category}
-            descriptionBackgroundColor={
-              product.category === Category.MensClothing ? "#2BD9AF" : "#FF5E84"
-            }
-          />
-        ))
+        <div className="product-grid">
+          {renderAlternateProducts().map((product) => (
+            <ProductCard
+              key={product.id}
+              title={product.title}
+              image={product.image}
+              price={product.price}
+              description={product.description}
+              category={product.category}
+              descriptionBackgroundColor={
+                product.category === Category.MensClothing
+                  ? "#2BD9AF"
+                  : "#FF5E84"
+              }
+            />
+          ))}
+        </div>
       )}
     </div>
   );

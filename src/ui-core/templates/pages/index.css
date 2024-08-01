@@ -1,0 +1,18 @@
+.watchlist-container {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 2vw;
+}
+
+.empty-message {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 40vw;
+}
+
+.watchlist-item-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2vw;
+  margin-left: 0;
+}
