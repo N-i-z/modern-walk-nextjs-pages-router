@@ -1,9 +1,0 @@
-.flash-sale-products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0px;
-  margin-left: 35px;
-  margin-top: -20px;
-  margin-right: 20px;
-  min-height: 600px;
-}

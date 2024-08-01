@@ -13,7 +13,7 @@ export function WomensClothing() {
       </div>
       <Products
         url="https://fakestoreapi.com/products/category/women's clothing"
-        descriptionBackgroundColor={"#FF5E84"}
+        descriptionBackgroundColor="#FF5E84"
       />
     </div>
   );
@@ -27,7 +27,7 @@ export function MensClothing() {
       </div>
       <Products
         url="https://fakestoreapi.com/products/category/men's clothing"
-        descriptionBackgroundColor={"#2BD9AF"}
+        descriptionBackgroundColor="#2BD9AF"
       />
     </div>
   );
@@ -45,7 +45,7 @@ const Products: React.FC<ProductsProps> = ({
         <Loading message="Loading..." />
       ) : (
         <ProductList
-          products={data}
+          products={data || []}
           descriptionBackgroundColor={descriptionBackgroundColor}
         />
       )}
@@ -58,7 +58,7 @@ const ProductList: React.FC<ProductListProps> = ({
   descriptionBackgroundColor,
 }) => {
   return (
-    <div className="products-container">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-10">
       {products.map((product) => (
         <ProductCard
           key={product.id}
