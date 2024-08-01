@@ -5,6 +5,7 @@ import { Navbar } from "./ui-core/components";
 import { Home } from "./ui-core/templates";
 import { MensClothing } from "./ui-core/templates";
 import { WomensClothing } from "./ui-core/templates";
+import { SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
 
 const MensClothingCategory: React.FC = () => {
   return <MensClothing />;
@@ -16,16 +17,29 @@ const WomensClothingCategory: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/mens-clothing" element={<MensClothingCategory />} />
-          <Route path="/womens-clothing" element={<WomensClothingCategory />} />
-        </Routes>
-      </Router>
-    </div>
+    <>
+      <div className="App">
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/mens-clothing" element={<MensClothingCategory />} />
+            <Route
+              path="/womens-clothing"
+              element={<WomensClothingCategory />}
+            />
+            <Route
+              path="*"
+              element={
+                <SignedOut>
+                  <RedirectToSignIn />
+                </SignedOut>
+              }
+            />
+          </Routes>
+        </Router>
+      </div>
+    </>
   );
 };
 

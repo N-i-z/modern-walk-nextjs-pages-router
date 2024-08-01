@@ -19,7 +19,7 @@ const ProductCard = ({
         </h3>
       </div>
       <div>
-        <img src={image} alt={title} />
+        <img className="card-image" src={image} alt={title} />
       </div>
       <div
         className={`card-description ${

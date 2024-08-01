@@ -1,5 +1,15 @@
 # modern-walk
 
+## 0.4.0
+
+### Minor Changes
+
+- de13f3b: - Setup Clerk auth
+
+### Patch Changes
+
+- 3496c29: - Hide secret key
+
 ## 0.3.0
 
 ### Minor Changes

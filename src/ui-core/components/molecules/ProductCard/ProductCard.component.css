@@ -20,7 +20,7 @@
 }
 
 /* Style for the product image */
-img {
+.card-image {
   width: auto;
   height: 190px;
   transition: transform 0.3s ease;
@@ -28,7 +28,7 @@ img {
 }
 
 /* Scale image on hover */
-img:hover {
+.card-image:hover {
   transform: scale(1.1);
 }
 
