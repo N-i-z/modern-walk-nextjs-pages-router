@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
-import { Heading } from "../../components";
-import { FullCartItemCard } from "../../components";
-// import { ShoppingBag } from "lucide-react";
-import { Button } from "../../components/atoms/Button/button";
+import { CartContext } from "../context/CartContext";
+import { Heading } from "../ui-core/components";
+import { FullCartItemCard } from "../ui-core/components";
+import { Button } from "../ui-core/components/atoms/Button/button";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -14,7 +13,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "../../components/molecules/AlertDialog/alert-dialog";
+} from "../ui-core/components/molecules/AlertDialog/alert-dialog";
 
 const FullCart: React.FC = () => {
   const { cart, clearCart } = useContext(CartContext) || { cart: [] };
@@ -76,10 +75,7 @@ const FullCart: React.FC = () => {
             </AlertDialog>
           </div>
 
-          <Button variant="secondary">
-            {/* <ShoppingBag className="mr-2" /> */}
-            Checkout
-          </Button>
+          <Button variant="secondary">Checkout</Button>
         </div>
       )}
     </div>

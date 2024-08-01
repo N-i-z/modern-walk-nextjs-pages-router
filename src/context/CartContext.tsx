@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { useUser } from "@clerk/clerk-react";
+import { useUser } from "@clerk/nextjs";
 import { CartItemProps, CartContextProps } from "./Context.types";
 
 export const CartContext = createContext<CartContextProps | undefined>(

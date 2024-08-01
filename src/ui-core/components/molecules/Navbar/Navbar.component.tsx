@@ -1,11 +1,6 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/clerk-react";
+import Link from "next/link";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { ShoppingCart, Eye, X, Expand } from "lucide-react";
 import { CartContext, useCart } from "../../../../context/CartContext";
 import {
@@ -32,9 +27,9 @@ import {
   AlertDialogTrigger,
 } from "../AlertDialog/alert-dialog";
 import { ScrollArea, ScrollBar } from "../../atoms/ScrollArea/scroll-area";
+
 export const Navbar = () => {
   const { cart, cartQuantity } = useCart();
-
   const { clearCart } = useContext(CartContext) || { cart: [] };
 
   const total = cart.reduce((accumulator, currentItem) => {
@@ -44,7 +39,7 @@ export const Navbar = () => {
   return (
     <div className="sticky z-50 top-0 w-full h-20 bg-gradient-to-r from-lightWomenBackground to-lightMenBackground flex justify-between items-center shadow-md">
       <div className="mr-0 flex items-center">
-        <Link to="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <img
             className="mt-1 w-36 h-auto transition-transform duration-300 transform hover:scale-110"
             src="/image/logo.png"
@@ -54,26 +49,26 @@ export const Navbar = () => {
       </div>
       <div className="flex items-end font-bold gap-12 ml-auto lg:text-xl lg:gap-8">
         <Link
-          to="/components"
+          href="/components"
           className="text-white text-3xl transition-opacity duration-300 hover:opacity-70"
         >
           Components
         </Link>
         <Link
-          to="/mens-clothing"
+          href="/mens-clothing"
           className="text-white text-3xl transition-opacity duration-300 hover:opacity-70"
         >
           Men
         </Link>
         <Link
-          to="/womens-clothing"
+          href="/womens-clothing"
           className="text-white text-3xl transition-opacity duration-300 hover:opacity-70"
         >
           Women
         </Link>
         <SignedIn>
           <Link
-            to="/watchlist"
+            href="/watchlist"
             className="relative text-white text-3xl transition-opacity duration-300 hover:opacity-70"
           >
             <Eye size={44} />
@@ -94,7 +89,7 @@ export const Navbar = () => {
               <DrawerHeader>
                 <DrawerTitle className="ml-5">Your Cart</DrawerTitle>
                 <DrawerClose asChild>
-                  <Link to="/full-cart">
+                  <Link href="/fullcart">
                     <Button
                       variant="card"
                       size="icon"

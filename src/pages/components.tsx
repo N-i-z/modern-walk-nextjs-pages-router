@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Heading } from "../../components";
-import { Button } from "../../components/atoms/Button/button";
-import { Input } from "../../components/atoms/Input/input";
+import { Heading } from "../ui-core/components";
+import { Button } from "../ui-core/components/atoms/Button/button";
+import { Input } from "../ui-core/components/atoms/Input/input";
 import {
   RadioGroup,
   RadioGroupItem,
-} from "../../components/atoms/RadioGroup/radio-group";
-import { Checkbox } from "../../components/atoms/Checkbox/checkbox";
+} from "../ui-core/components/atoms/RadioGroup/radio-group";
+import { Checkbox } from "../ui-core/components/atoms/Checkbox/checkbox";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,11 +15,11 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../../components/molecules/DropdownMenu/dropdown-menu";
+} from "../ui-core/components/molecules/DropdownMenu/dropdown-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
-import { cn } from "../../../lib/utils";
+import { cn } from "../lib/utils";
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import {
   Dialog,
@@ -30,11 +30,11 @@ import {
   DialogFooter,
   DialogTrigger,
   DialogClose,
-} from "../../components/molecules/Dialog/dialog";
+} from "../ui-core/components/molecules/Dialog/dialog";
 import {
   ScrollArea,
   ScrollBar,
-} from "../../components/atoms/ScrollArea/scroll-area";
+} from "../ui-core/components/atoms/ScrollArea/scroll-area";
 
 import {
   AlertDialog,
@@ -46,7 +46,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "../../components/molecules/AlertDialog/alert-dialog";
+} from "../ui-core/components/molecules/AlertDialog/alert-dialog";
 import { z } from "zod";
 
 type Checked = DropdownMenuCheckboxItemProps["checked"];
@@ -243,7 +243,7 @@ const Components: React.FC = () => {
           <DropdownMenu onOpenChange={setIsDDOpen}>
             <DropdownMenuTrigger
               className={cn(
-                "p-3 ring-2 hover:ring-hover hover:text-hover outline-none hover:bg-inverseHover",
+                "p-3 ring-1 shadow-none hover:ring-hover hover:text-hover outline-none hover:bg-inverseHover",
                 isDDOpen
                   ? "ring-selected text-selected"
                   : " text-normal ring-normal"

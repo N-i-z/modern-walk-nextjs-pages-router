@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { WatchlistContext } from "../context/WatchListContext";
-import { useUser } from "@clerk/clerk-react";
+import { useUser } from "@clerk/nextjs";
 import { WatchlistItemProps } from "../context/Context.types";
 
 const useWatchlist = (
