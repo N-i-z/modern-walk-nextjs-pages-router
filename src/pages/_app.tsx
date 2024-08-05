@@ -6,6 +6,13 @@ import { CartProvider } from "../context/CartContext";
 import { Navbar } from "../ui-core/components";
 import "../App.css";
 import { WatchlistProvider } from "../context/WatchListContext";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
 const queryClient = new QueryClient();
 
 function App({ Component, pageProps }: AppProps) {
@@ -19,7 +26,9 @@ function App({ Component, pageProps }: AppProps) {
             <SignedOut>
               <RedirectToSignIn />
             </SignedOut>
-            <Component {...pageProps} />
+            <main className={roboto.className}>
+              <Component {...pageProps} />
+            </main>
           </WatchlistProvider>
         </CartProvider>
       </QueryClientProvider>

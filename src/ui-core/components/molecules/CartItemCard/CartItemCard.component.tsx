@@ -3,6 +3,7 @@ import { CartItemCardProps } from "./CartItemCard.types";
 import useCart from "../../../../hooks/useCart";
 import { Button } from "../../atoms/Button/button";
 import { ChevronDown, ChevronUp, ShoppingCart, Trash } from "lucide-react";
+import Image from "next/image";
 
 const CartItemCard: React.FC<CartItemCardProps> = ({
   id,
@@ -23,12 +24,15 @@ const CartItemCard: React.FC<CartItemCardProps> = ({
   const totalPrice = price * quantity;
 
   return (
-    <div className="flex justify-between items-center bg-white rounded-3xl w-[120%] h-auto max-w-[1000px] p-6 m-2 shadow-boxNormal hover:shadow-boxHover ">
+    <div className="flex justify-between items-center bg-white rounded-3xl w-[120%] h-auto max-w-[1000px] p-6 mt-2 shadow-boxNormal hover:shadow-boxHover ">
       <div className="flex ">
-        <img
-          className="w-auto h-40 mt-[5%] object-cover rounded-lg mr-4"
+        <Image
+          className=" mt-[5%] object-cover rounded-lg mr-4"
           src={image}
           alt={title}
+          width={100}
+          height={150}
+          layout="fixed"
         />
         <div className="p-7 justify-center items-center">
           <h3 className="text-xl text-black font-bold max-w-[12rem]  truncate  text-justify">

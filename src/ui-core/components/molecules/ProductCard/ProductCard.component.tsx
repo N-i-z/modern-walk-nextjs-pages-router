@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import useWatchlist from "../../../../hooks/usewatchlist";
 import useCart from "../../../../hooks/useCart";
+import Image from "next/image";
 
 const ProductCard = ({
   title,
@@ -41,10 +42,13 @@ const ProductCard = ({
         <h3 className="text-2xl text-black font-bold truncate">{title}</h3>
       </div>
       <div>
-        <img
-          className="card-image w-auto h-[190px] transition-transform duration-300 ease-in-out m-5 object-cover hover:scale-110"
+        <Image
+          className="card-image transition-transform duration-300 ease-in-out m-5 object-cover hover:scale-110"
           src={image}
           alt={title}
+          height={100}
+          width={120}
+          layout="fixed"
         />
       </div>
       <div

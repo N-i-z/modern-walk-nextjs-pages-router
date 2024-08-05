@@ -3,6 +3,7 @@ import { WatchlistItemCardProps } from "./WatchlistItemCard.types";
 import { Button } from "../../atoms/Button/button";
 import { Eye, EyeOff } from "lucide-react";
 import useWatchlist from "../../../../hooks/usewatchlist";
+import Image from "next/image";
 
 const WatchlistItemCard: React.FC<WatchlistItemCardProps> = ({
   id,
@@ -25,10 +26,13 @@ const WatchlistItemCard: React.FC<WatchlistItemCardProps> = ({
         </h3>
       </div>
       <div>
-        <img
-          className="w-auto h-[30vh] transition-transform duration-300 ease-in-out m-5 hover:scale-110"
+        <Image
+          className=" transition-transform duration-300 ease-in-out m-5 hover:scale-110"
           src={image}
           alt={title}
+          height={400}
+          width={200}
+          layout="fixed"
         />
       </div>
       <div className="description">

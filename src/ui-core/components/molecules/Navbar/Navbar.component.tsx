@@ -27,6 +27,7 @@ import {
   AlertDialogTrigger,
 } from "../AlertDialog/alert-dialog";
 import { ScrollArea, ScrollBar } from "../../atoms/ScrollArea/scroll-area";
+import Image from "next/image";
 
 export const Navbar = () => {
   const { cart, cartQuantity } = useCart();
@@ -40,10 +41,12 @@ export const Navbar = () => {
     <div className="sticky z-50 top-0 w-full h-20 bg-gradient-to-r from-lightWomenBackground to-lightMenBackground flex justify-between items-center shadow-md">
       <div className="mr-0 flex items-center">
         <Link href="/" className="flex items-center">
-          <img
-            className="mt-1 w-36 h-auto transition-transform duration-300 transform hover:scale-110"
+          <Image
             src="/image/logo.png"
             alt="logo"
+            width={140}
+            height={140}
+            className="mt-1 transition-transform duration-300 transform hover:scale-110"
           />
         </Link>
       </div>
@@ -115,7 +118,7 @@ export const Navbar = () => {
                       {cart.length === 0 ? (
                         <h3 className="mt-8 text-center">Your cart is empty</h3>
                       ) : (
-                        <div className="grid items-center w-full ml-5 gap-2 mt-8">
+                        <div className="grid items-center w-full ml-5 gap-2 mt-4 mb-24">
                           {cart.map((item) => (
                             <div key={item.id} className="w-full max-w-[30rem]">
                               <CartItemCard
