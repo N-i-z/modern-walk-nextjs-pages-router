@@ -12,16 +12,20 @@ import {
 import useWatchlist from "../../../../hooks/usewatchlist";
 import useCart from "../../../../hooks/useCart";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const ProductCard = ({
+  id,
   title,
   image,
   price,
   description,
   descriptionBackgroundColor,
 }: ProductCardProps) => {
+  const router = useRouter();
+
   const { isInWatchlist, handleWatchlistToggle, isSignedIn } = useWatchlist(
-    title, // itemId
+    id, // itemId
     title, // itemName
     price,
     image
@@ -34,10 +38,25 @@ const ProductCard = ({
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
-  } = useCart(title, title, price, image);
+  } = useCart(id, title, price, image);
+
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    // Check if the click is on a button or any of its child elements
+    if (
+      (e.target as HTMLElement).closest("button") ||
+      (e.target as HTMLElement).closest(".button-container")
+    ) {
+      return;
+    }
+    // Navigate to the product page if the click is not on a button
+    router.push(`/${id}`);
+  };
 
   return (
-    <div className="card bg-white rounded-[50px] w-[420px] h-[550px] max-w-[800px] m-2 mb-12 flex flex-col justify-between items-center shadow-lg overflow-hidden relative z-10">
+    <div
+      className="card bg-white rounded-[50px] w-[420px] h-[550px] max-w-[800px] m-2 mb-12 flex flex-col justify-between items-center shadow-lg overflow-hidden relative z-10 cursor-pointer"
+      onClick={handleCardClick}
+    >
       <div className="card-title max-w-xs mx-12 mt-6 text-center truncate">
         <h3 className="text-2xl text-black font-bold truncate">{title}</h3>
       </div>
@@ -64,7 +83,10 @@ const ProductCard = ({
           <Button
             variant="card"
             size="icon"
-            onClick={handleWatchlistToggle}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent click event from propagating to the link
+              handleWatchlistToggle();
+            }}
             disabled={!isSignedIn}
             className={` mb-2 ${
               isInWatchlist ? "bg-gray-400 text-black" : "bg-white text-black"
@@ -78,7 +100,10 @@ const ProductCard = ({
                 <Button
                   variant="card"
                   size="icon"
-                  onClick={() => decreaseCartQuantity(title)}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent click event from propagating to the link
+                    decreaseCartQuantity(id);
+                  }}
                 >
                   <ChevronDown />
                 </Button>
@@ -86,14 +111,20 @@ const ProductCard = ({
                 <Button
                   variant="card"
                   size="icon"
-                  onClick={() => increaseCartQuantity(title)}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent click event from propagating to the link
+                    increaseCartQuantity(id);
+                  }}
                 >
                   <ChevronUp />
                 </Button>
                 <Button
                   variant="card"
                   size="icon"
-                  onClick={() => removeFromCart(title)}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent click event from propagating to the link
+                    removeFromCart(id);
+                  }}
                   className="bg-transparent hover:bg-transparent hover:animate-vibrate"
                 >
                   <Trash className="text-likeblack" />
@@ -103,8 +134,10 @@ const ProductCard = ({
               <Button
                 variant="card"
                 size="icon"
-                onClick={handleCartToggle}
-                // disabled={!isSignedIn}
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent click event from propagating to the link
+                  handleCartToggle();
+                }}
               >
                 <ShoppingCart />
               </Button>
