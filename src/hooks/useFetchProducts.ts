@@ -1,30 +1,24 @@
-import { useState, useEffect } from "react";
-import axios, { AxiosResponse } from "axios";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { Product } from "../models/Product";
+
+export const fetchProducts = async (url: string): Promise<Product[]> => {
+  const { data } = await axios.get(url);
+  return data;
+};
 
 export interface UseFetchProductsReturn {
   loading: boolean;
-  data: Product[];
+  data: Product[] | undefined;
 }
 
 const useFetchProducts = (url: string): UseFetchProductsReturn => {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [data, setData] = useState<Product[]>([]);
+  const { data, isLoading } = useQuery<Product[], Error>({
+    queryKey: ["products", url],
+    queryFn: () => fetchProducts(url),
+  });
 
-  useEffect(() => {
-    setLoading(true);
-    axios({
-      method: "GET",
-      url: url,
-    })
-      .then((res: AxiosResponse) => {
-        setData(res.data);
-      })
-      .catch((e) => console.log(e))
-      .finally(() => setLoading(false));
-  }, [url]);
-
-  return { loading, data };
+  return { loading: isLoading, data };
 };
 
 export default useFetchProducts;

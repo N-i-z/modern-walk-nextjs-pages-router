@@ -1,40 +1,20 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f5f5f5;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 h1,
@@ -44,22 +24,34 @@ h4,
 h5,
 h6,
 p {
-  font-family: Roboto
-    url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+  @apply font-roboto;
+  @apply to-likeblack;
+}
+
+.App {
+  @apply text-center;
+}
+
+.App-header {
+  @apply bg-appHeader min-h-screen flex flex-col items-center justify-center text-white;
+}
+
+.App-link {
+  @apply text-appLink;
 }
 
 .men-background {
-  background-color: #2bd9af;
+  @apply bg-menBackground;
 }
 
 .women-background {
-  background-color: #ff5e84;
+  @apply bg-womenBackground;
 }
 
 .men-background:hover {
-  background-color: #239b85;
+  @apply bg-menBackgroundHover;
 }
 
 .women-background:hover {
-  background-color: #cc4b69;
+  @apply bg-womenBackgroundHover;
 }
